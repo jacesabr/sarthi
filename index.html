@@ -1,0 +1,592 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sarthi — Pitch</title>
+<style>
+  :root {
+    --bg: #0a0a0a;
+    --ink: #f5f5f0;
+    --dim: #8a8a85;
+    --accent: #ff7a3d;
+    --accent-soft: #ff7a3d22;
+    --gold: #f6c544;
+    --rule: #1f1f1c;
+    --card: #131311;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html, body { background: var(--bg); color: var(--ink); font-family: 'Inter', -apple-system, system-ui, sans-serif; }
+  body {
+    scroll-snap-type: y mandatory;
+    overflow-y: scroll;
+    height: 100vh;
+  }
+  .slide {
+    height: 100vh;
+    scroll-snap-align: start;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 6vh 8vw;
+    position: relative;
+    border-bottom: 1px solid var(--rule);
+  }
+  .eyebrow {
+    font-size: 0.85rem;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 2.5vh;
+    font-weight: 600;
+  }
+  h1.cover {
+    font-size: clamp(3.5rem, 8vw, 7rem);
+    font-weight: 800;
+    line-height: 0.95;
+    letter-spacing: -0.03em;
+    margin-bottom: 2vh;
+  }
+  h1.cover em { color: var(--accent); font-style: normal; }
+  .cover-tag {
+    font-size: clamp(1.4rem, 2.2vw, 2rem);
+    color: var(--dim);
+    max-width: 60ch;
+    line-height: 1.3;
+  }
+  .cover-meta {
+    position: absolute;
+    bottom: 6vh;
+    left: 8vw;
+    right: 8vw;
+    display: flex;
+    justify-content: space-between;
+    color: var(--dim);
+    font-size: 0.9rem;
+  }
+  h2.title {
+    font-size: clamp(2.5rem, 5vw, 4.5rem);
+    font-weight: 700;
+    line-height: 1.05;
+    letter-spacing: -0.02em;
+    margin-bottom: 4vh;
+    max-width: 22ch;
+  }
+  h2.title em { color: var(--accent); font-style: normal; }
+  h2.title b { color: var(--gold); font-weight: 700; }
+  .lead {
+    font-size: clamp(1.3rem, 1.8vw, 1.7rem);
+    color: var(--dim);
+    line-height: 1.5;
+    max-width: 60ch;
+    margin-bottom: 4vh;
+  }
+  .lead strong { color: var(--ink); font-weight: 600; }
+  .big-stat {
+    font-size: clamp(5rem, 14vw, 14rem);
+    font-weight: 800;
+    line-height: 0.9;
+    letter-spacing: -0.05em;
+    color: var(--accent);
+    margin-bottom: 1vh;
+  }
+  .stat-cap {
+    font-size: clamp(1.3rem, 2vw, 1.8rem);
+    color: var(--ink);
+    max-width: 50ch;
+    line-height: 1.4;
+  }
+  .grid-3 {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 3vw;
+    margin-top: 3vh;
+  }
+  .grid-2 {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4vw;
+    margin-top: 3vh;
+  }
+  .card {
+    background: var(--card);
+    border: 1px solid var(--rule);
+    border-radius: 12px;
+    padding: 3vh 2.5vw;
+  }
+  .card-num {
+    font-size: 0.85rem;
+    color: var(--accent);
+    font-weight: 700;
+    margin-bottom: 1.5vh;
+    letter-spacing: 0.15em;
+  }
+  .card-title {
+    font-size: clamp(1.3rem, 1.8vw, 1.6rem);
+    font-weight: 700;
+    margin-bottom: 1.5vh;
+    color: var(--ink);
+  }
+  .card-body {
+    font-size: clamp(1rem, 1.3vw, 1.15rem);
+    color: var(--dim);
+    line-height: 1.5;
+  }
+  .bullets {
+    list-style: none;
+    margin-top: 2vh;
+  }
+  .bullets li {
+    font-size: clamp(1.2rem, 1.7vw, 1.6rem);
+    line-height: 1.5;
+    margin-bottom: 2vh;
+    padding-left: 2.5rem;
+    position: relative;
+    color: var(--ink);
+  }
+  .bullets li::before {
+    content: "→";
+    position: absolute;
+    left: 0;
+    color: var(--accent);
+    font-weight: 700;
+  }
+  .bullets li em { color: var(--accent); font-style: normal; font-weight: 600; }
+  .bullets li b { color: var(--gold); font-weight: 600; }
+  table.market {
+    border-collapse: collapse;
+    margin-top: 3vh;
+    font-size: clamp(1.1rem, 1.5vw, 1.4rem);
+    width: 80%;
+  }
+  table.market td, table.market th {
+    text-align: left;
+    padding: 1.5vh 2vw;
+    border-bottom: 1px solid var(--rule);
+  }
+  table.market th {
+    color: var(--dim);
+    font-weight: 500;
+    font-size: 0.9rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+  }
+  table.market td.num { color: var(--accent); font-weight: 700; }
+  table.market tr.total td { font-weight: 700; color: var(--gold); border-top: 2px solid var(--accent); border-bottom: none; padding-top: 2vh; }
+  .compete {
+    display: grid;
+    grid-template-columns: 1.3fr 1fr 1fr 1fr;
+    gap: 0;
+    margin-top: 3vh;
+    font-size: clamp(1rem, 1.3vw, 1.25rem);
+  }
+  .compete > div {
+    padding: 2vh 1.5vw;
+    border-bottom: 1px solid var(--rule);
+  }
+  .compete .ch {
+    color: var(--dim);
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    font-weight: 600;
+  }
+  .compete .yes { color: var(--accent); font-weight: 700; }
+  .compete .no { color: var(--dim); }
+  .compete .row-us {
+    grid-column: 1 / -1;
+    display: grid;
+    grid-template-columns: 1.3fr 1fr 1fr 1fr;
+    background: var(--accent-soft);
+    border-radius: 6px;
+    border-bottom: none;
+    padding: 0;
+  }
+  .compete .row-us > div {
+    padding: 2vh 1.5vw;
+    color: var(--ink);
+    font-weight: 600;
+    border-bottom: none;
+  }
+  .progress {
+    position: fixed;
+    bottom: 2vh;
+    right: 2vw;
+    color: var(--dim);
+    font-size: 0.85rem;
+    background: var(--bg);
+    padding: 0.5rem 1rem;
+    border: 1px solid var(--rule);
+    border-radius: 100px;
+    z-index: 10;
+  }
+  .pull-quote {
+    font-size: clamp(2rem, 3.5vw, 3.2rem);
+    line-height: 1.25;
+    font-weight: 600;
+    letter-spacing: -0.01em;
+    max-width: 28ch;
+  }
+  .pull-quote em { color: var(--accent); font-style: normal; }
+  .ask-num {
+    font-size: clamp(4rem, 9vw, 8rem);
+    font-weight: 800;
+    color: var(--gold);
+    letter-spacing: -0.03em;
+    line-height: 1;
+    margin-bottom: 2vh;
+  }
+  .ask-cap { font-size: clamp(1.3rem, 1.8vw, 1.6rem); color: var(--dim); }
+  .footnote {
+    font-size: 0.85rem;
+    color: var(--dim);
+    margin-top: 4vh;
+    font-style: italic;
+  }
+  .demo-mock {
+    background: var(--card);
+    border: 1px solid var(--rule);
+    border-radius: 16px;
+    padding: 3vh 3vw;
+    margin-top: 3vh;
+    max-width: 700px;
+  }
+  .mock-row { display: flex; justify-content: space-between; align-items: center; padding: 1vh 0; border-bottom: 1px solid var(--rule); }
+  .mock-row:last-child { border-bottom: none; }
+  .mock-chapter { font-size: 1.1rem; }
+  .mock-bar { flex: 0 0 200px; height: 8px; background: var(--rule); border-radius: 100px; margin: 0 1rem; overflow: hidden; }
+  .mock-bar-fill { height: 100%; background: var(--accent); border-radius: 100px; }
+  .mock-pct { font-size: 1rem; color: var(--accent); font-weight: 700; min-width: 50px; text-align: right; }
+  .mock-pct.weak { color: #ff5a5a; }
+  .mock-pct.mid { color: var(--gold); }
+  .strikethrough { text-decoration: line-through; color: var(--dim); }
+  .descent { margin-top: 2vh; max-width: 820px; }
+  .descent-row {
+    display: flex; align-items: center; gap: 1rem;
+    padding: 1.3vh 1.5vw; margin-bottom: 0.9vh;
+    background: var(--card); border: 1px solid var(--rule);
+    border-left: 3px solid var(--rule); border-radius: 8px;
+    font-size: clamp(1rem, 1.4vw, 1.35rem); color: var(--ink);
+  }
+  .descent-row .lvl { color: var(--dim); font-size: 0.72rem; letter-spacing: 0.12em; text-transform: uppercase; min-width: 3rem; }
+  .descent-row .tag { margin-left: auto; font-size: 0.85rem; font-weight: 700; color: var(--dim); white-space: nowrap; }
+  .d2 { margin-left: 3.5vw; } .d3 { margin-left: 7vw; } .d4 { margin-left: 10.5vw; }
+  .descent-row.stuck { border-left-color: #ff5a5a; }
+  .descent-row.stuck .tag { color: #ff5a5a; }
+  .descent-row.bedrock { border-left-color: var(--accent); background: var(--accent-soft); }
+  .descent-row.bedrock .tag { color: var(--accent); }
+  .descent-cap { font-size: clamp(1.1rem, 1.5vw, 1.4rem); color: var(--dim); margin-top: 3vh; }
+  .descent-cap em { color: var(--accent); font-style: normal; }
+  .entry-tag { color: var(--accent); font-weight: 700; font-size: 0.85rem; margin-left: 0.8rem; }
+  .arch-wrap { width: 100%; display: flex; justify-content: center; margin-top: 1vh; }
+  .arch-svg { width: 100%; max-width: 960px; max-height: 60vh; height: auto; }
+</style>
+</head>
+<body>
+
+<!-- 01 COVER -->
+<section class="slide">
+  <div class="eyebrow">Sarthi · Investor + Parent Deck</div>
+  <h1 class="cover">Personal coaching <em>for the price of a tiffin.</em></h1>
+  <p class="cover-tag">An AI coach that finds the exact crack in a student's understanding, fixes it from first principles, and proves they've got it. Starting with CBSE Class 10 — for less than a tiffin a day.</p>
+  <div class="cover-meta">
+    <span>Sarthi · 2026</span>
+    <span>Confidential</span>
+  </div>
+</section>
+
+<!-- 02 THE PROBLEM -->
+<section class="slide">
+  <div class="eyebrow">01 · The problem</div>
+  <h2 class="title">Parents pay <em>₹2 lakh a year</em> for a class of 40.</h2>
+  <p class="lead">Coaching centres are a 30-year-old model: <strong>one teacher, one pace, one answer key.</strong> The kid who's stuck on chapter 4 sits through chapter 12 anyway. The kid who needs more practice on optics gets the same homework as everyone else.</p>
+  <p class="lead">India spends <strong>$58 billion</strong> a year on test prep. The success rate for JEE? <strong>Under 2%.</strong></p>
+</section>
+
+<!-- 03 THE STAT -->
+<section class="slide" style="justify-content: center; text-align: center; align-items: center;">
+  <div class="big-stat">95%</div>
+  <p class="stat-cap">of students who pay for premium coaching <strong>do not</strong> crack the exam they paid for.</p>
+  <p class="footnote">Source: Allen, Aakash, FIITJEE published selection rates · NTA results 2024</p>
+</section>
+
+<!-- 04 THE REAL PROBLEM -->
+<section class="slide">
+  <div class="eyebrow">02 · The real problem</div>
+  <h2 class="title">A kid fails quadratics for reasons that <em>aren't quadratics.</em></h2>
+  <p class="lead">When a student gets stuck, the crack is almost never where the lesson is. It's three layers down — a shaky grasp of <strong>factoring</strong>, or <strong>fractions</strong>, or <strong>negative signs.</strong> No teacher with 40 students has time to trace it, so the gap gets papered over — and it compounds, chapter after chapter, year after year.</p>
+  <p class="lead">Every student needs someone who will stop, find the <strong>exact</strong> brick that's missing, rebuild from there, and not move on until they've proven it. That has never been affordable. <em>Until now.</em></p>
+</section>
+
+<!-- 05 THE SHIFT -->
+<section class="slide">
+  <div class="eyebrow">03 · Why this wasn't possible before</div>
+  <h2 class="title">A <em>private tutor</em> used to mean a private tutor.</h2>
+  <p class="lead">Until 2024, "personalised coaching" meant hiring a human. Hours, ego, scheduling, salary.</p>
+  <p class="lead">As of 2026, AI is <strong>good enough and cheap enough</strong> to give every Indian student their own tutor — for less than a Domino's pizza per month. <em>This is the first time in history this has been possible.</em></p>
+</section>
+
+<!-- 06 FIRST-PRINCIPLES LEARNING -->
+<section class="slide">
+  <div class="eyebrow">04 · What we built</div>
+  <h2 class="title">Sarthi. <em>First-principles learning.</em></h2>
+  <p class="lead">Sarthi has a real conversation with the student. The moment they stall, it doesn't push forward — it <strong>traces the gap downward</strong>, concept by concept, until it hits bedrock the student already owns. Then it rebuilds them, level by level, back up to where they started.</p>
+  <div class="descent">
+    <div class="descent-row stuck d1"><span class="lvl">Goal</span> Quadratic equations <span class="tag">✕ stuck here</span></div>
+    <div class="descent-row d2"><span class="lvl">↓</span> Factorising expressions <span class="tag">trace down</span></div>
+    <div class="descent-row d3"><span class="lvl">↓</span> Multiplying brackets <span class="tag">trace down</span></div>
+    <div class="descent-row bedrock d4"><span class="lvl">↓</span> Working with negative signs <span class="tag">✓ solid — start here</span></div>
+  </div>
+  <p class="descent-cap">Down to the missing brick — then back up. <em>The gap is closed for good, not papered over.</em></p>
+</section>
+
+<!-- 07 MASTERY / GATES -->
+<section class="slide">
+  <div class="eyebrow">05 · The mastery engine</div>
+  <h2 class="title">You only climb when you've <em>proven it.</em></h2>
+  <p class="lead">To move back up a level, the student passes a <strong>gate</strong> — a couple of targeted questions, a short written answer, a diagram they draw themselves. No gate, no climb. Mastery is <em>earned, never assumed.</em></p>
+  <div class="demo-mock">
+    <div class="mock-row"><span class="mock-chapter">Real Numbers</span><div class="mock-bar"><div class="mock-bar-fill" style="width: 92%"></div></div><span class="mock-pct">92%</span></div>
+    <div class="mock-row"><span class="mock-chapter">Quadratic Equations</span><div class="mock-bar"><div class="mock-bar-fill" style="width: 64%; background: #f6c544;"></div></div><span class="mock-pct mid">64%</span></div>
+    <div class="mock-row"><span class="mock-chapter">Trigonometry</span><div class="mock-bar"><div class="mock-bar-fill" style="width: 38%; background: #ff5a5a;"></div></div><span class="mock-pct weak">38%</span></div>
+    <div class="mock-row"><span class="mock-chapter">Probability</span><div class="mock-bar"><div class="mock-bar-fill" style="width: 88%"></div></div><span class="mock-pct">88%</span></div>
+  </div>
+  <p class="lead" style="margin-top: 3vh;">Every concept the student owns lights up the map. Master all of Class 10 → <em>Class 12 unlocks.</em> Earned, not handed.</p>
+</section>
+
+<!-- 06B WHY CLASS 10 FIRST -->
+<section class="slide">
+  <div class="eyebrow">06 · Why we start here</div>
+  <h2 class="title">The only exam where <em>100% mastery</em> is an honest promise.</h2>
+  <p class="lead">JEE has no syllabus ceiling — there's always a harder question, so "complete mastery" is a lie. CBSE Class 10 is the opposite: <strong>one NCERT textbook, one official syllabus, a finite bank of past papers.</strong> The corpus is bounded and definitive.</p>
+  <ul class="bullets">
+    <li><em>14 Math chapters, 13 Science chapters.</em> That's the whole game — nothing outside the book is ever asked.</li>
+    <li><em>~9 official sample papers + ~60 board-paper variants</em> — every one backed by an official marking scheme.</li>
+    <li>Because the corpus is finite, we can take a student to <b>100% of it</b> — and prove it. <em>No other exam lets you say that.</em></li>
+  </ul>
+  <p class="footnote">Win a bounded corpus completely, then expand to where the corpus is bigger.</p>
+</section>
+
+<!-- 07 WHY NOW -->
+<section class="slide">
+  <div class="eyebrow">07 · Why now</div>
+  <h2 class="title">Three lines crossed <em>this year.</em></h2>
+  <ul class="bullets">
+    <li><em>AI got cheap.</em> Per-student inference: <b>~₹100/month</b> with a director + cheap-agent design — and still falling. In 2023 it was 10× that. In 2021 it was impossible.</li>
+    <li><em>Phones reached the kids.</em> Smartphone penetration in our target demographic: <b>82%.</b> Up from 41% in 2020.</li>
+    <li><em>Parents got tired.</em> Coaching ROI is now a national conversation. ₹2 lakh for a 2% chance? <b>Math has changed.</b></li>
+  </ul>
+</section>
+
+<!-- 09 MARKET -->
+<section class="slide">
+  <div class="eyebrow">08 · Market</div>
+  <h2 class="title">Start at one layer. <em>Own all four.</em></h2>
+  <table class="market">
+    <tr><th>Exam</th><th>Students / year</th></tr>
+    <tr><td>JEE Main</td><td class="num">12 lakh</td></tr>
+    <tr><td>NEET</td><td class="num">22 lakh</td></tr>
+    <tr><td>CBSE Class 10 <span class="entry-tag">← we start here</span></td><td class="num">22 lakh</td></tr>
+    <tr><td>CBSE Class 12</td><td class="num">17 lakh</td></tr>
+    <tr class="total"><td>Total addressable</td><td class="num">73 lakh / year</td></tr>
+  </table>
+  <p class="lead" style="margin-top: 3vh;">We enter at the <strong>22-lakh Class 10 layer</strong> — the one with a bounded corpus — and expand outward. At ₹4,000 ARPU the full market is <em>₹2,920 crore</em>. <strong>1% capture in 3 years = ₹29 Cr ARR.</strong></p>
+</section>
+
+<!-- 10 PRICING -->
+<section class="slide">
+  <div class="eyebrow">09 · Pricing</div>
+  <h2 class="title">What parents pay today vs <em>what they'll pay us.</em></h2>
+  <div class="grid-2">
+    <div class="card">
+      <div class="card-num">TODAY</div>
+      <div class="card-title">Allen / Aakash / FIITJEE</div>
+      <div class="card-body" style="font-size: 1.5rem; color: var(--ink); margin-top: 2vh;"><span class="strikethrough">₹1,80,000</span> / year</div>
+      <div class="card-body" style="margin-top: 1vh;">One teacher, 40 kids, same pace. 95% don't crack it.</div>
+    </div>
+    <div class="card" style="border-color: var(--accent);">
+      <div class="card-num" style="color: var(--gold);">SARTHI</div>
+      <div class="card-title">AI coach, 1:1, every chapter</div>
+      <div class="card-body" style="font-size: 1.5rem; color: var(--accent); margin-top: 2vh; font-weight: 700;">₹499 / month</div>
+      <div class="card-body" style="margin-top: 1vh;">~₹6,000/year. <strong>1/30th the price.</strong> Gross margin 70–85%.</div>
+    </div>
+  </div>
+</section>
+
+<!-- 11 COMPETITION -->
+<section class="slide">
+  <div class="eyebrow">10 · Competition</div>
+  <h2 class="title">Nobody traces a gap to its <em>root.</em></h2>
+  <div class="compete">
+    <div class="ch">Player</div><div class="ch">Indian curriculum</div><div class="ch">Finds the root cause</div><div class="ch">Affordable</div>
+
+    <div>Allen / Aakash</div><div class="yes">Yes</div><div class="no">No — one pace</div><div class="no">No (₹2L)</div>
+    <div>Byju's / Unacademy</div><div class="yes">Yes</div><div class="no">No — video, one path</div><div class="no">₹30-70K</div>
+    <div>PhysicsWallah</div><div class="yes">Yes</div><div class="no">No — video + live</div><div class="yes">₹5K</div>
+    <div>Khanmigo / ChatGPT</div><div class="no">No — US curriculum</div><div class="no">Chats, but no map</div><div class="yes">Free-ish</div>
+    <div class="row-us"><div>Sarthi</div><div class="yes">Yes</div><div class="yes">Yes — to first principles</div><div class="yes">₹6K</div></div>
+  </div>
+</section>
+
+<!-- 11A HOW IT WORKS / FRACTAL ARCHITECTURE -->
+<section class="slide">
+  <div class="eyebrow">11 · How it works</div>
+  <h2 class="title">A cheap agent at every point. <em>One brain on top.</em></h2>
+  <div class="arch-wrap">
+    <svg viewBox="0 0 1000 560" class="arch-svg" xmlns="http://www.w3.org/2000/svg">
+      <style>
+        .box{fill:#131311;stroke:#1f1f1c;stroke-width:1.5;}
+        .pth{fill:#131311;stroke:#ff7a3d;stroke-width:2;}
+        .bed{fill:#ff7a3d22;stroke:#ff7a3d;stroke-width:2;}
+        .dir{fill:#131311;stroke:#f6c544;stroke-width:2;}
+        text{font-family:Inter,system-ui,sans-serif;fill:#f5f5f0;}
+        .t{font-size:14px;text-anchor:middle;}
+        .sub{font-size:11px;fill:#8a8a85;text-anchor:middle;}
+        .dirh{font-size:15px;fill:#f6c544;font-weight:700;text-anchor:middle;}
+        .dirs{font-size:11px;fill:#8a8a85;text-anchor:middle;}
+        .conn{stroke:#1f1f1c;stroke-width:1.5;fill:none;}
+        .connp{stroke:#ff7a3d;stroke-width:2;fill:none;}
+        .call{fill:#0f0f0d;stroke:#1f1f1c;stroke-width:1.5;}
+        .callt{font-size:13.5px;fill:#c9c9c4;text-anchor:start;}
+        .callh{font-size:13.5px;fill:#f5f5f0;text-anchor:start;font-weight:700;}
+        .legt{font-size:12px;fill:#8a8a85;text-anchor:start;}
+      </style>
+      <path class="connp" d="M500,64 L500,108"/>
+      <path class="connp" d="M500,154 L210,196"/>
+      <path class="conn"  d="M500,154 L500,196"/>
+      <path class="conn"  d="M500,154 L790,196"/>
+      <path class="connp" d="M210,240 L162,284"/>
+      <path class="conn"  d="M210,240 L350,284"/>
+      <path class="connp" d="M162,326 L125,370"/>
+      <path class="conn"  d="M162,326 L295,370"/>
+      <path class="connp" d="M125,412 L125,456"/>
+      <rect class="dir" x="340" y="8" width="320" height="56" rx="9"/>
+      <text class="dirh" x="500" y="32">◆ DIRECTOR — frontier model</text>
+      <text class="dirs" x="500" y="50">holds the map · decides when to descend / ascend</text>
+      <rect class="pth" x="410" y="108" width="180" height="46" rx="7"/>
+      <text class="t" x="500" y="136">Quadratic equations</text>
+      <rect class="pth" x="120" y="196" width="180" height="44" rx="7"/>
+      <text class="t" x="210" y="223">Factorising</text>
+      <rect class="box" x="410" y="196" width="180" height="44" rx="7"/>
+      <text class="t" x="500" y="223">Quadratic formula</text>
+      <text class="sub" x="500" y="258">⋯</text>
+      <rect class="box" x="700" y="196" width="180" height="44" rx="7"/>
+      <text class="t" x="790" y="223">Completing the square</text>
+      <text class="sub" x="790" y="258">⋯</text>
+      <rect class="pth" x="70" y="284" width="185" height="42" rx="7"/>
+      <text class="t" x="162" y="310">Split the middle term</text>
+      <rect class="box" x="275" y="284" width="150" height="42" rx="7"/>
+      <text class="t" x="350" y="310">Zero-product</text>
+      <text class="sub" x="350" y="342">⋯</text>
+      <rect class="pth" x="40" y="370" width="170" height="42" rx="7"/>
+      <text class="t" x="125" y="396">Multiply binomials</text>
+      <rect class="box" x="230" y="370" width="130" height="42" rx="7"/>
+      <text class="t" x="295" y="396">Factor pairs</text>
+      <text class="sub" x="295" y="428">⋯</text>
+      <rect class="bed" x="40" y="456" width="170" height="48" rx="7"/>
+      <text class="t" x="125" y="479">Integer signs</text>
+      <text class="sub" x="125" y="495" style="fill:#ff7a3d;">bedrock — already solid ✓</text>
+      <rect class="call" x="470" y="288" width="500" height="92" rx="10"/>
+      <text class="callh" x="492" y="316">◆ The director is the only frontier call.</text>
+      <text class="callt" x="492" y="340">It reads a short summary of where the student is —</text>
+      <text class="callt" x="492" y="360">not the whole conversation. Tiny tokens, big picture.</text>
+      <rect class="call" x="470" y="396" width="500" height="116" rx="10"/>
+      <text class="callh" x="492" y="424">▢ Each node is a cheap agent.</text>
+      <text class="callt" x="492" y="448">One concept's corpus + the explanations that worked,</text>
+      <text class="callt" x="492" y="468">prompt-cached and shared by every student here.</text>
+      <text class="callt" x="492" y="492" style="fill:#ff7a3d;">Zoom into any node → the same loop. Fractal to bedrock.</text>
+      <rect class="dir" x="40" y="524" width="18" height="18" rx="4"/>
+      <text class="legt" x="66" y="538">director (frontier)</text>
+      <rect class="box" x="250" y="524" width="18" height="18" rx="4"/>
+      <text class="legt" x="276" y="538">concept = cheap agent</text>
+      <rect class="bed" x="520" y="524" width="18" height="18" rx="4"/>
+      <text class="legt" x="546" y="538">bedrock</text>
+      <rect class="pth" x="690" y="524" width="18" height="18" rx="4"/>
+      <text class="legt" x="716" y="538">the descent path</text>
+    </svg>
+  </div>
+  <p class="descent-cap">Each concept is taught by its own small, cached agent. A single frontier <em>director</em> watches the whole map and decides when to drop a level — so the expensive model barely runs, and every lesson gets cheaper as the agents learn.</p>
+</section>
+
+<!-- 11B WHY IT COMPOUNDS -->
+<section class="slide">
+  <div class="eyebrow">12 · Why it compounds</div>
+  <h2 class="title">Every student we teach makes the next lesson <em>better.</em></h2>
+  <p class="lead">The code isn't the moat — the <strong>data is.</strong> Two assets compound, and neither can be copied overnight:</p>
+  <ul class="bullets">
+    <li><em>Verified concept graphs.</em> Mapping a subject to its prerequisite chain and checking every link is slow, expert curriculum work. Once built, it's ours.</li>
+    <li><em>A per-concept teaching flywheel.</em> We store every conversation, mine the explanations and <b>"aha" moments</b> that actually got a student past the gate, and feed them back into that concept's tutor — so each one gets measurably better at teaching its one thing.</li>
+  </ul>
+  <p class="footnote">A general chatbot can answer the question. Only Sarthi knows, for this exact concept, the explanation that has worked for 10,000 kids before you.</p>
+</section>
+
+<!-- 12 GO TO MARKET -->
+<section class="slide">
+  <div class="eyebrow">13 · Go-to-market</div>
+  <h2 class="title">Where the students <em>actually are.</em></h2>
+  <ul class="bullets">
+    <li><em>WhatsApp-native onboarding</em> — share a link, take the diagnostic, start learning. No app store friction.</li>
+    <li><em>Tier-2/3 city schools</em> — partnership channel. One school = 500 prospects in a single demo.</li>
+    <li><em>Coaching-centre dropouts</em> — high-intent, already pre-qualified, fed up. Easy switch.</li>
+    <li><em>Parent referrals</em> — Indian parents talk. One mom in the WhatsApp group recommends Sarthi = 20 signups.</li>
+  </ul>
+</section>
+
+<!-- 13 VISION -->
+<section class="slide">
+  <div class="eyebrow">14 · Where this goes</div>
+  <h2 class="title">From one exam to <em>every technical subject.</em></h2>
+  <p class="lead">CBSE Class 10 is the wedge — a bounded corpus where we prove 100% mastery. But the engine is <strong>content-agnostic</strong>: a concept graph is a concept graph. With no code change, the same system teaches Class 12, JEE / NEET, and <em>Data Science, ML, AI</em> — where adult upskilling pays 10–50× more per learner.</p>
+  <p class="lead">India has <strong>250 million</strong> school-age students, and hundreds of millions more adults retraining for technical work. The unit of education is shifting from <em>classroom</em> to <em>conversation.</em> We're building the engine for that shift.</p>
+</section>
+
+<!-- 14 ASK -->
+<section class="slide">
+  <div class="eyebrow">15 · The ask</div>
+  <h2 class="title">We raise <em>after</em> we've proven it — not before.</h2>
+  <p class="lead">The engine is buildable by a lean team. So we ship the MVP — one chapter, end to end — put it in front of real students, and prove retention and true cost-per-student first. Capital follows traction, on honest terms.</p>
+  <div class="grid-2" style="margin-top: 4vh;">
+    <div>
+      <div class="ask-num">₹50L–1Cr</div>
+      <div class="ask-cap">Lean pre-seed, once the model is proven</div>
+    </div>
+    <div>
+      <div class="ask-num">2,000</div>
+      <div class="ask-cap">Paying students + proven ₹/student before we scale</div>
+    </div>
+  </div>
+  <p class="lead" style="margin-top: 4vh;"><strong>Capital goes to:</strong> curriculum experts to author + verify concept graphs · inference at scale · WhatsApp + school distribution. <em>Not</em> six engineers.</p>
+</section>
+
+<!-- 15 CLOSING -->
+<section class="slide" style="justify-content: center; align-items: center; text-align: center;">
+  <div class="pull-quote">"Coaching used to be a privilege. <em>It doesn't have to be anymore.</em>"</div>
+  <p class="cover-tag" style="margin-top: 6vh;">Sarthi · 2026</p>
+  <p class="footnote" style="margin-top: 1vh;">Contact: aiworkshopludhiana@proton.me</p>
+</section>
+
+<div class="progress" id="progress">1 / 18</div>
+
+<script>
+  const slides = document.querySelectorAll('.slide');
+  const progress = document.getElementById('progress');
+  const total = slides.length;
+  function updateProgress() {
+    const scroll = window.scrollY;
+    const idx = Math.round(scroll / window.innerHeight) + 1;
+    progress.textContent = `${Math.min(idx, total)} / ${total}`;
+  }
+  window.addEventListener('scroll', updateProgress);
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'ArrowDown' || e.key === 'ArrowRight' || e.key === ' ') {
+      e.preventDefault();
+      window.scrollBy({ top: window.innerHeight, behavior: 'smooth' });
+    } else if (e.key === 'ArrowUp' || e.key === 'ArrowLeft') {
+      e.preventDefault();
+      window.scrollBy({ top: -window.innerHeight, behavior: 'smooth' });
+    }
+  });
+</script>
+
+</body>
+</html>
