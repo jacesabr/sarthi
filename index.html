@@ -291,6 +291,7 @@
   .entry-tag { color: var(--accent); font-weight: 700; font-size: 0.85rem; margin-left: 0.8rem; }
   .arch-wrap { width: 100%; display: flex; justify-content: center; margin-top: 1vh; }
   .arch-svg { width: 100%; max-width: 900px; max-height: 56vh; height: auto; }
+  .loop-svg { width: 100%; max-width: 960px; max-height: 44vh; height: auto; display: block; margin: 1.5vh 0 0; }
 </style>
 </head>
 <body>
@@ -341,7 +342,7 @@
 <section class="slide">
   <div class="eyebrow">04 · What we built</div>
   <h2 class="title">Sarthi. <em>First-principles learning.</em></h2>
-  <p class="lead">Sarthi talks with the student. The moment they stall, it <strong>traces the gap downward</strong> — concept by concept — until it hits something they already know. Then it builds them back up.</p>
+  <p class="lead">Sarthi talks with the student. The moment they stall, it <strong>traces the gap downward</strong> — concept by concept — until it hits something they already know. Then it <strong>teaches its way back up</strong> — by conversation, not lecture.</p>
   <div class="descent">
     <div class="descent-row stuck d1"><span class="lvl">Goal</span> Quadratic equations <span class="tag">✕ stuck here</span></div>
     <div class="descent-row d2"><span class="lvl">↓</span> Factorising expressions <span class="tag">trace down</span></div>
@@ -351,18 +352,40 @@
   <p class="descent-cap">Down to the missing brick — then back up. <em>The gap is closed for good, not papered over.</em></p>
 </section>
 
-<!-- 07 MASTERY / GATES -->
+<!-- 07 TEACH, TEST, CLIMB -->
 <section class="slide">
-  <div class="eyebrow">05 · The mastery engine</div>
+  <div class="eyebrow">05 · Teach, test, climb</div>
   <h2 class="title">You only climb when you've <em>proven it.</em></h2>
-  <p class="lead">To climb back up, the student passes a <strong>gate</strong> — a few questions, a short answer, a diagram. No gate, no climb. Mastery is <em>earned, never assumed.</em></p>
-  <div class="demo-mock">
-    <div class="mock-row"><span class="mock-chapter">Real Numbers</span><div class="mock-bar"><div class="mock-bar-fill" style="width: 92%"></div></div><span class="mock-pct">92%</span></div>
-    <div class="mock-row"><span class="mock-chapter">Quadratic Equations</span><div class="mock-bar"><div class="mock-bar-fill" style="width: 64%; background: #f6c544;"></div></div><span class="mock-pct mid">64%</span></div>
-    <div class="mock-row"><span class="mock-chapter">Trigonometry</span><div class="mock-bar"><div class="mock-bar-fill" style="width: 38%; background: #ff5a5a;"></div></div><span class="mock-pct weak">38%</span></div>
-    <div class="mock-row"><span class="mock-chapter">Probability</span><div class="mock-bar"><div class="mock-bar-fill" style="width: 88%"></div></div><span class="mock-pct">88%</span></div>
-  </div>
-  <p class="lead" style="margin-top: 3vh;">Master every chapter → the next class unlocks. <em>Earned, not handed.</em></p>
+  <p class="lead">No stale lesson plans. Sarthi <strong>teaches by conversation</strong> — Socratic, back-and-forth — until it actually clicks. Then the student has to prove it before moving up.</p>
+  <svg class="loop-svg" viewBox="0 0 980 300" xmlns="http://www.w3.org/2000/svg" font-family="Inter, system-ui, sans-serif">
+    <defs>
+      <marker id="ah" markerWidth="9" markerHeight="9" refX="7" refY="3" orient="auto" markerUnits="strokeWidth"><path d="M0,0 L7,3 L0,6 Z" fill="#ff7a3d"/></marker>
+      <marker id="ahd" markerWidth="9" markerHeight="9" refX="7" refY="3" orient="auto" markerUnits="strokeWidth"><path d="M0,0 L7,3 L0,6 Z" fill="#8a8a85"/></marker>
+    </defs>
+    <path d="M250,72 C288,30 40,30 78,72" fill="none" stroke="#8a8a85" stroke-width="2" marker-end="url(#ahd)"/>
+    <text x="164" y="24" fill="#8a8a85" font-size="13" font-style="italic" text-anchor="middle">loops until it clicks</text>
+    <rect x="38" y="72" width="252" height="150" rx="14" fill="#131311" stroke="#1f1f1c"/>
+    <text x="164" y="108" fill="#ff7a3d" font-size="13" font-weight="700" letter-spacing="2" text-anchor="middle">TEACH</text>
+    <text x="164" y="142" fill="#f5f5f0" font-size="22" font-weight="700" text-anchor="middle">Socratic dialogue</text>
+    <text x="164" y="170" fill="#8a8a85" font-size="14" text-anchor="middle">back-and-forth conversation,</text>
+    <text x="164" y="190" fill="#8a8a85" font-size="14" text-anchor="middle">not a stale lesson plan</text>
+    <text x="322" y="138" fill="#8a8a85" font-size="13" text-anchor="middle">then</text>
+    <line x1="292" y1="147" x2="352" y2="147" stroke="#ff7a3d" stroke-width="2.5" marker-end="url(#ah)"/>
+    <rect x="356" y="72" width="300" height="150" rx="14" fill="#131311" stroke="#ff7a3d"/>
+    <text x="506" y="104" fill="#ff7a3d" font-size="13" font-weight="700" letter-spacing="2" text-anchor="middle">PROVE IT · THE GATE</text>
+    <text x="506" y="138" fill="#f5f5f0" font-size="16" text-anchor="middle">short &amp; long answers</text>
+    <text x="506" y="166" fill="#f5f5f0" font-size="16" text-anchor="middle">multiple-choice</text>
+    <text x="506" y="194" fill="#f5f5f0" font-size="16" text-anchor="middle">draw it — concepts &amp; math</text>
+    <text x="700" y="112" fill="#ff7a3d" font-size="13" text-anchor="middle">✓ passed</text>
+    <line x1="658" y1="124" x2="734" y2="124" stroke="#ff7a3d" stroke-width="2.5" marker-end="url(#ah)"/>
+    <rect x="738" y="72" width="224" height="150" rx="14" fill="#131311" stroke="#1f1f1c"/>
+    <text x="850" y="116" fill="#f6c544" font-size="13" font-weight="700" letter-spacing="2" text-anchor="middle">CLIMB A LEVEL</text>
+    <text x="850" y="150" fill="#f5f5f0" font-size="17" font-weight="600" text-anchor="middle">rejoin the main thread</text>
+    <text x="850" y="180" fill="#8a8a85" font-size="15" text-anchor="middle">→ on to the next topic</text>
+    <path d="M506,222 C506,278 164,278 164,224" fill="none" stroke="#8a8a85" stroke-width="2" stroke-dasharray="5 5" marker-end="url(#ahd)"/>
+    <text x="335" y="296" fill="#8a8a85" font-size="13" text-anchor="middle">✕ not yet — keep teaching</text>
+  </svg>
+  <p class="footnote">Prove every level back to the top → the topic's done, and the next one unlocks.</p>
 </section>
 
 <!-- 06B WHY CLASS 10 FIRST -->
