@@ -65,23 +65,34 @@
     font-size: 0.9rem;
   }
   h2.title {
-    font-size: clamp(1.9rem, 3.8vw, 3.4rem);
+    font-size: clamp(2.2rem, 4.4vw, 4rem);
     font-weight: 700;
     line-height: 1.08;
     letter-spacing: -0.02em;
-    margin-bottom: 2.4vh;
-    max-width: 24ch;
+    margin-bottom: 2.8vh;
+    max-width: 20ch;
   }
   h2.title em { color: var(--accent); font-style: normal; }
   h2.title b { color: var(--gold); font-weight: 700; }
   .lead {
-    font-size: clamp(1.02rem, 1.45vw, 1.42rem);
+    font-size: clamp(1.2rem, 1.7vw, 1.65rem);
     color: var(--dim);
     line-height: 1.45;
-    max-width: 64ch;
-    margin-bottom: 2.2vh;
+    max-width: 52ch;
+    margin-bottom: 2.4vh;
   }
   .lead strong { color: var(--ink); font-weight: 600; }
+  .lead em { color: var(--accent); font-style: normal; font-weight: 600; }
+  .punch {
+    font-size: clamp(1.4rem, 2.2vw, 2.1rem);
+    color: var(--ink);
+    font-weight: 600;
+    line-height: 1.3;
+    max-width: 30ch;
+    margin-top: 1vh;
+  }
+  .punch em { color: var(--accent); font-style: normal; }
+  .punch b { color: var(--gold); font-weight: 700; }
   .big-stat {
     font-size: clamp(4rem, 11vw, 11rem);
     font-weight: 800;
@@ -137,9 +148,9 @@
     margin-top: 2vh;
   }
   .bullets li {
-    font-size: clamp(1.02rem, 1.4vw, 1.42rem);
-    line-height: 1.45;
-    margin-bottom: 1.4vh;
+    font-size: clamp(1.25rem, 1.85vw, 1.7rem);
+    line-height: 1.4;
+    margin-bottom: 2vh;
     padding-left: 2.2rem;
     position: relative;
     color: var(--ink);
@@ -288,7 +299,7 @@
 <section class="slide">
   <div class="eyebrow">Sarthi · Investor + Parent Deck</div>
   <h1 class="cover">Personal coaching <em>for the price of a tiffin.</em></h1>
-  <p class="cover-tag">An AI coach that finds the exact crack in a student's understanding, fixes it from first principles, and proves they've got it. Starting with CBSE Class 10 — for less than a tiffin a day.</p>
+  <p class="cover-tag">It finds the exact crack in a student's understanding, fixes it from first principles, and proves they've got it. Starting with CBSE Class 10.</p>
   <div class="cover-meta">
     <span>Sarthi · 2026</span>
     <span>Confidential</span>
@@ -299,8 +310,8 @@
 <section class="slide">
   <div class="eyebrow">01 · The problem</div>
   <h2 class="title">Parents pay <em>₹2 lakh a year</em> for a class of 40.</h2>
-  <p class="lead">Coaching centres are a 30-year-old model: <strong>one teacher, one pace, one answer key.</strong> The kid who's stuck on chapter 4 sits through chapter 12 anyway. The kid who needs more practice on optics gets the same homework as everyone else.</p>
-  <p class="lead">India spends <strong>$58 billion</strong> a year on test prep. The success rate for JEE? <strong>Under 2%.</strong></p>
+  <p class="lead">One teacher, one pace, one answer key. The kid stuck on chapter 4 sits through chapter 12 anyway.</p>
+  <p class="punch">India spends <em>$58 billion</em> a year on test prep. JEE success rate: <b>under 2%.</b></p>
 </section>
 
 <!-- 03 THE STAT -->
@@ -314,23 +325,23 @@
 <section class="slide">
   <div class="eyebrow">02 · The real problem</div>
   <h2 class="title">A kid fails quadratics for reasons that <em>aren't quadratics.</em></h2>
-  <p class="lead">When a student gets stuck, the crack is almost never where the lesson is. It's three layers down — a shaky grasp of <strong>factoring</strong>, or <strong>fractions</strong>, or <strong>negative signs.</strong> No teacher with 40 students has time to trace it, so the gap gets papered over — and it compounds, chapter after chapter, year after year.</p>
-  <p class="lead">Every student needs someone who will stop, find the <strong>exact</strong> brick that's missing, rebuild from there, and not move on until they've proven it. That has never been affordable. <em>Until now.</em></p>
+  <p class="lead">The crack is never where the lesson is. It's three layers down — a shaky grasp of <strong>factoring</strong>, <strong>fractions</strong>, or <strong>negative signs.</strong></p>
+  <p class="punch">No teacher of 40 has time to find it. So the gap compounds — <em>year after year.</em></p>
 </section>
 
 <!-- 05 THE SHIFT -->
 <section class="slide">
   <div class="eyebrow">03 · Why this wasn't possible before</div>
   <h2 class="title">A <em>private tutor</em> used to mean a private tutor.</h2>
-  <p class="lead">Until 2024, "personalised coaching" meant hiring a human. Hours, ego, scheduling, salary.</p>
-  <p class="lead">As of 2026, AI is <strong>good enough and cheap enough</strong> to give every Indian student their own tutor — for less than a Domino's pizza per month. <em>This is the first time in history this has been possible.</em></p>
+  <p class="lead">Until 2024, personalised coaching meant hiring a human — hours, scheduling, salary.</p>
+  <p class="punch">In 2026, AI is finally good and cheap enough to give every student their own. <em>First time in history.</em></p>
 </section>
 
 <!-- 06 FIRST-PRINCIPLES LEARNING -->
 <section class="slide">
   <div class="eyebrow">04 · What we built</div>
   <h2 class="title">Sarthi. <em>First-principles learning.</em></h2>
-  <p class="lead">Sarthi has a real conversation with the student. The moment they stall, it doesn't push forward — it <strong>traces the gap downward</strong>, concept by concept, until it hits bedrock the student already owns. Then it rebuilds them, level by level, back up to where they started.</p>
+  <p class="lead">Sarthi talks with the student. The moment they stall, it <strong>traces the gap downward</strong> — concept by concept — until it hits something they already know. Then it builds them back up.</p>
   <div class="descent">
     <div class="descent-row stuck d1"><span class="lvl">Goal</span> Quadratic equations <span class="tag">✕ stuck here</span></div>
     <div class="descent-row d2"><span class="lvl">↓</span> Factorising expressions <span class="tag">trace down</span></div>
@@ -344,27 +355,27 @@
 <section class="slide">
   <div class="eyebrow">05 · The mastery engine</div>
   <h2 class="title">You only climb when you've <em>proven it.</em></h2>
-  <p class="lead">To move back up a level, the student passes a <strong>gate</strong> — a couple of targeted questions, a short written answer, a diagram they draw themselves. No gate, no climb. Mastery is <em>earned, never assumed.</em></p>
+  <p class="lead">To climb back up, the student passes a <strong>gate</strong> — a few questions, a short answer, a diagram. No gate, no climb. Mastery is <em>earned, never assumed.</em></p>
   <div class="demo-mock">
     <div class="mock-row"><span class="mock-chapter">Real Numbers</span><div class="mock-bar"><div class="mock-bar-fill" style="width: 92%"></div></div><span class="mock-pct">92%</span></div>
     <div class="mock-row"><span class="mock-chapter">Quadratic Equations</span><div class="mock-bar"><div class="mock-bar-fill" style="width: 64%; background: #f6c544;"></div></div><span class="mock-pct mid">64%</span></div>
     <div class="mock-row"><span class="mock-chapter">Trigonometry</span><div class="mock-bar"><div class="mock-bar-fill" style="width: 38%; background: #ff5a5a;"></div></div><span class="mock-pct weak">38%</span></div>
     <div class="mock-row"><span class="mock-chapter">Probability</span><div class="mock-bar"><div class="mock-bar-fill" style="width: 88%"></div></div><span class="mock-pct">88%</span></div>
   </div>
-  <p class="lead" style="margin-top: 3vh;">Every concept the student owns lights up the map. Master all of Class 10 → <em>Class 12 unlocks.</em> Earned, not handed.</p>
+  <p class="lead" style="margin-top: 3vh;">Master every chapter → the next class unlocks. <em>Earned, not handed.</em></p>
 </section>
 
 <!-- 06B WHY CLASS 10 FIRST -->
 <section class="slide">
   <div class="eyebrow">06 · Why we start here</div>
   <h2 class="title">The only exam where <em>100% mastery</em> is an honest promise.</h2>
-  <p class="lead">JEE has no syllabus ceiling — there's always a harder question, so "complete mastery" is a lie. CBSE Class 10 is the opposite: <strong>one NCERT textbook, one official syllabus, a finite bank of past papers.</strong> The corpus is bounded and definitive.</p>
+  <p class="lead">JEE has no syllabus ceiling — "complete mastery" is a lie. Class 10 is the opposite: <strong>one book, one syllabus, a finite set of papers.</strong></p>
   <ul class="bullets">
-    <li><em>14 Math chapters, 13 Science chapters.</em> That's the whole game — nothing outside the book is ever asked.</li>
-    <li><em>~9 official sample papers + ~60 board-paper variants</em> — every one backed by an official marking scheme.</li>
-    <li>Because the corpus is finite, we can take a student to <b>100% of it</b> — and prove it. <em>No other exam lets you say that.</em></li>
+    <li><em>14 Math + 13 Science chapters.</em> That's the whole game.</li>
+    <li><em>~9 sample papers + ~60 board papers</em> — all with marking schemes.</li>
+    <li>A finite corpus means we can hit <b>100% of it.</b> <em>No other exam lets you say that.</em></li>
   </ul>
-  <p class="footnote">Win a bounded corpus completely, then expand to where the corpus is bigger.</p>
+  <p class="footnote">Win a bounded corpus, then expand.</p>
 </section>
 
 <!-- 07 WHY NOW -->
@@ -372,9 +383,9 @@
   <div class="eyebrow">07 · Why now</div>
   <h2 class="title">Three lines crossed <em>this year.</em></h2>
   <ul class="bullets">
-    <li><em>AI got cheap.</em> Per-student inference: <b>~₹100/month</b> with a director + cheap-agent design — and still falling. In 2023 it was 10× that. In 2021 it was impossible.</li>
-    <li><em>Phones reached the kids.</em> Smartphone penetration in our target demographic: <b>82%.</b> Up from 41% in 2020.</li>
-    <li><em>Parents got tired.</em> Coaching ROI is now a national conversation. ₹2 lakh for a 2% chance? <b>Math has changed.</b></li>
+    <li><em>AI got cheap.</em> ~<b>₹100/month</b> per student now — 10× cheaper than 2023, impossible in 2021.</li>
+    <li><em>Phones reached the kids.</em> <b>82%</b> smartphone penetration in our market — up from 41% in 2020.</li>
+    <li><em>Parents got tired.</em> ₹2 lakh for a 2% chance? <b>The math finally broke.</b></li>
   </ul>
 </section>
 
@@ -390,7 +401,7 @@
     <tr><td>CBSE Class 12</td><td class="num">17 lakh</td></tr>
     <tr class="total"><td>Total addressable</td><td class="num">73 lakh / year</td></tr>
   </table>
-  <p class="lead" style="margin-top: 3vh;">We enter at the <strong>22-lakh Class 10 layer</strong> — the one with a bounded corpus — and expand outward. At ₹4,000 ARPU the full market is <em>₹2,920 crore</em>. <strong>1% capture in 3 years = ₹29 Cr ARR.</strong></p>
+  <p class="lead" style="margin-top: 3vh;">Enter at the <strong>22-lakh Class 10 layer</strong>, expand outward. At ₹4,000 ARPU = a <em>₹2,920 Cr</em> market. <strong>1% in 3 years = ₹29 Cr ARR.</strong></p>
 </section>
 
 <!-- 10 PRICING -->
@@ -505,19 +516,19 @@
       <text class="legt" x="716" y="538">the descent path</text>
     </svg>
   </div>
-  <p class="descent-cap">Each concept is taught by its own small, cached agent. A single frontier <em>director</em> watches the whole map and decides when to drop a level — so the expensive model barely runs, and every lesson gets cheaper as the agents learn.</p>
+  <p class="descent-cap">Each concept = its own cheap, cached agent. One frontier <em>director</em> watches the map and decides when to go deeper — so the expensive model barely runs.</p>
 </section>
 
 <!-- 11B WHY IT COMPOUNDS -->
 <section class="slide">
   <div class="eyebrow">12 · Why it compounds</div>
   <h2 class="title">Every student we teach makes the next lesson <em>better.</em></h2>
-  <p class="lead">The code isn't the moat — the <strong>data is.</strong> Two assets compound, and neither can be copied overnight:</p>
+  <p class="lead">The code isn't the moat — <strong>the data is.</strong> Two things compound:</p>
   <ul class="bullets">
-    <li><em>Verified concept graphs.</em> Mapping a subject to its prerequisite chain and checking every link is slow, expert curriculum work. Once built, it's ours.</li>
-    <li><em>A per-concept teaching flywheel.</em> We store every conversation, mine the explanations and <b>"aha" moments</b> that actually got a student past the gate, and feed them back into that concept's tutor — so each one gets measurably better at teaching its one thing.</li>
+    <li><em>Verified concept graphs.</em> Slow, expert work to build. Once built, ours.</li>
+    <li><em>A teaching flywheel.</em> Every "aha" moment that worked gets fed back — so each concept's tutor keeps getting better.</li>
   </ul>
-  <p class="footnote">A general chatbot can answer the question. Only Sarthi knows, for this exact concept, the explanation that has worked for 10,000 kids before you.</p>
+  <p class="footnote">A chatbot answers the question. Sarthi knows the explanation that's worked for 10,000 kids before you.</p>
 </section>
 
 <!-- 12 GO TO MARKET -->
@@ -525,10 +536,10 @@
   <div class="eyebrow">13 · Go-to-market</div>
   <h2 class="title">Where the students <em>actually are.</em></h2>
   <ul class="bullets">
-    <li><em>WhatsApp-native onboarding</em> — share a link, take the diagnostic, start learning. No app store friction.</li>
-    <li><em>Tier-2/3 city schools</em> — partnership channel. One school = 500 prospects in a single demo.</li>
-    <li><em>Coaching-centre dropouts</em> — high-intent, already pre-qualified, fed up. Easy switch.</li>
-    <li><em>Parent referrals</em> — Indian parents talk. One mom in the WhatsApp group recommends Sarthi = 20 signups.</li>
+    <li><em>WhatsApp-native.</em> Share a link → diagnostic → start. No app-store friction.</li>
+    <li><em>Tier-2/3 schools.</em> One school = 500 prospects in a single demo.</li>
+    <li><em>Coaching dropouts.</em> High-intent, fed up, easy switch.</li>
+    <li><em>Parent referrals.</em> One mom in the group = 20 signups.</li>
   </ul>
 </section>
 
@@ -536,15 +547,15 @@
 <section class="slide">
   <div class="eyebrow">14 · Where this goes</div>
   <h2 class="title">From one exam to <em>every technical subject.</em></h2>
-  <p class="lead">CBSE Class 10 is the wedge — a bounded corpus where we prove 100% mastery. But the engine is <strong>content-agnostic</strong>: a concept graph is a concept graph. With no code change, the same system teaches Class 12, JEE / NEET, and <em>Data Science, ML, AI</em> — where adult upskilling pays 10–50× more per learner.</p>
-  <p class="lead">India has <strong>250 million</strong> school-age students, and hundreds of millions more adults retraining for technical work. The unit of education is shifting from <em>classroom</em> to <em>conversation.</em> We're building the engine for that shift.</p>
+  <p class="lead">Class 10 is the wedge. But the engine is <strong>content-agnostic</strong> — a concept graph is a concept graph. The same system teaches Class 12, JEE / NEET, and <em>Data Science, ML, AI.</em></p>
+  <p class="punch">Adult upskilling pays <b>10–50× more</b> per learner. The classroom is becoming a <em>conversation.</em></p>
 </section>
 
 <!-- 14 ASK -->
 <section class="slide">
   <div class="eyebrow">15 · The ask</div>
   <h2 class="title">We raise <em>after</em> we've proven it — not before.</h2>
-  <p class="lead">The engine is buildable by a lean team. So we ship the MVP — one chapter, end to end — put it in front of real students, and prove retention and true cost-per-student first. Capital follows traction, on honest terms.</p>
+  <p class="lead">The engine is buildable by a lean team. We ship one chapter end-to-end, prove retention and real cost-per-student, <em>then</em> raise.</p>
   <div class="grid-2" style="margin-top: 4vh;">
     <div>
       <div class="ask-num">₹50L–1Cr</div>
@@ -555,7 +566,7 @@
       <div class="ask-cap">Paying students + proven ₹/student before we scale</div>
     </div>
   </div>
-  <p class="lead" style="margin-top: 4vh;"><strong>Capital goes to:</strong> curriculum experts to author + verify concept graphs · inference at scale · WhatsApp + school distribution. <em>Not</em> six engineers.</p>
+  <p class="lead" style="margin-top: 4vh;"><strong>Capital goes to:</strong> curriculum experts · inference at scale · school + WhatsApp distribution. <em>Not</em> six engineers.</p>
 </section>
 
 <!-- 15 CLOSING -->
