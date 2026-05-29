@@ -261,6 +261,10 @@
   .src { font-size: clamp(0.98rem, 1.15vw, 1.12rem); color: var(--dim); line-height: 1.5; }
   .src-claim { color: var(--ink); font-weight: 600; }
   .src a { white-space: nowrap; }
+  sup.ref { color: var(--accent); font-size: 0.5em; font-weight: 700; vertical-align: super; margin-left: 1px; }
+  .links { font-size: clamp(0.95rem, 1.15vw, 1.08rem); color: var(--dim); margin-top: 3vh; line-height: 1.8; max-width: 72ch; }
+  .links a { color: var(--accent); text-decoration: none; border-bottom: 1px solid var(--accent-soft); white-space: nowrap; }
+  .links a:hover { border-bottom-color: var(--accent); }
   .demo-mock {
     background: var(--card);
     border: 1px solid var(--rule);
@@ -317,16 +321,18 @@
 <!-- 02 THE PROBLEM -->
 <section class="slide">
   <div class="eyebrow">01 · The problem</div>
-  <h2 class="title">Parents pay <em>₹2 lakh a year</em> for a class of 200.</h2>
+  <h2 class="title">Parents pay <em>₹2 lakh a year</em><sup class="ref">1</sup> for a class of 200.<sup class="ref">2</sup></h2>
   <p class="lead">One teacher, one pace, one answer key. The kid stuck on chapter 4 sits through chapter 12 anyway.</p>
-  <p class="punch">India's private-coaching market: <em>~₹58,000 cr</em> (~$7 B). Only <b>~1%</b> of JEE takers land an IIT seat.</p>
+  <p class="punch">India's private-coaching market: <em>~₹58,000 cr</em> (~$7 B)<sup class="ref">3</sup>. Only <b>~1%</b> of JEE takers land an IIT seat.<sup class="ref">4</sup></p>
+  <p class="links">Link: <a href="https://propelld.com/site/blog/allen-kota-fees" target="_blank" rel="noopener">1 Allen/Aakash fees</a> · <a href="https://www.education.gov.in/sites/upload_files/mhrd/files/Guideliens_Coaching_Centres_en.pdf" target="_blank" rel="noopener">2 batch sizes</a> · <a href="https://www.outlookbusiness.com/news/raus-ias-tragedy-why-rs-58000-cr-coaching-industry-needs-strict-regulations-2" target="_blank" rel="noopener">3 coaching market</a> · <a href="https://www.pw.live/iit-jee/exams/josaa-seat-matrix-2024" target="_blank" rel="noopener">4 IIT seats</a></p>
 </section>
 
 <!-- 03 THE STAT -->
 <section class="slide" style="justify-content: center; text-align: center; align-items: center;">
   <div class="big-stat">96%</div>
-  <p class="stat-cap">of JEE candidates — most of whom pay for coaching — don't win a single <strong>IIT, NIT, or IIIT</strong> seat.</p>
-  <p class="footnote">~60,000 premier seats (<a href="https://www.pw.live/iit-jee/exams/josaa-seat-matrix-2024" target="_blank" rel="noopener">JoSAA 2024</a>) ÷ ~14–15 lakh JEE Main candidates (<a href="https://testbook.com/jee-main/how-many-students-appeared-for-jee-main-year-wise-trend" target="_blank" rel="noopener">NTA data</a>)</p>
+  <p class="stat-cap">of JEE candidates — most of whom pay for coaching — don't win a single <strong>IIT, NIT, or IIIT</strong> seat.<sup class="ref">1</sup></p>
+  <p class="footnote">~60,000 premier seats ÷ ~14–15 lakh JEE Main candidates.</p>
+  <p class="links">Link: <a href="https://www.pw.live/iit-jee/exams/josaa-seat-matrix-2024" target="_blank" rel="noopener">1 JoSAA seats</a> · <a href="https://testbook.com/jee-main/how-many-students-appeared-for-jee-main-year-wise-trend" target="_blank" rel="noopener">1 JEE candidates</a></p>
 </section>
 
 <!-- 04 THE REAL PROBLEM -->
@@ -401,11 +407,12 @@
   <h2 class="title">The only exam where <em>100% mastery</em> is an honest promise.</h2>
   <p class="lead">JEE has no syllabus ceiling — "complete mastery" is a lie. Class 10 is the opposite: <strong>one book, one syllabus, a finite set of papers.</strong></p>
   <ul class="bullets">
-    <li><em>14 Math + 13 Science chapters.</em> That's the whole game.</li>
-    <li><em>~9 sample papers + ~60 board papers</em> — all with marking schemes.</li>
+    <li><em>14 Math + 13 Science chapters.</em><sup class="ref">1</sup> That's the whole game.</li>
+    <li><em>~9 sample papers + ~60 board papers</em><sup class="ref">2</sup> — all with marking schemes.</li>
     <li>A finite corpus means we can hit <b>100% of it.</b> <em>No other exam lets you say that.</em></li>
   </ul>
   <p class="footnote">Win a bounded corpus, then expand.</p>
+  <p class="links">Link: <a href="https://ncert.nic.in/pdf/BookletClass10.pdf" target="_blank" rel="noopener">1 NCERT Class 10 syllabus</a> · <a href="https://cbseacademic.nic.in/sqp_classx_2025-26.html" target="_blank" rel="noopener">2 CBSE sample papers</a></p>
 </section>
 
 <!-- 07 WHY NOW -->
@@ -413,10 +420,11 @@
   <div class="eyebrow">07 · Why now</div>
   <h2 class="title">Three lines crossed <em>this year.</em></h2>
   <ul class="bullets">
-    <li><em>AI got cheap.</em> ~<b>₹100/month</b> per student now — 10× cheaper than 2023, impossible in 2021.</li>
-    <li><em>Phones reached the kids.</em> Mobile use among kids 5–14 jumped <b>17% → 67%</b> (2020→2023); youth 15–29 sit at <b>~95%</b>.</li>
-    <li><em>Parents got tired.</em> ₹2 lakh for a 2% chance? <b>The math finally broke.</b></li>
+    <li><em>AI got cheap.</em> ~<b>₹100/month</b> per student now — 10× cheaper than 2023, impossible in 2021.<sup class="ref">1</sup></li>
+    <li><em>Phones reached the kids.</em> Mobile use among kids 5–14 jumped <b>17% → 67%</b> (2020→2023); youth 15–29 sit at <b>~95%</b>.<sup class="ref">2</sup></li>
+    <li><em>Parents got tired.</em> ₹2 lakh for a 2% chance? <b>The math finally broke.</b><sup class="ref">3</sup></li>
   </ul>
+  <p class="links">Link: <a href="https://a16z.com/llmflation-llm-inference-cost/" target="_blank" rel="noopener">1 inference cost</a> · <a href="https://www.pib.gov.in/PressReleasePage.aspx?PRID=2132330" target="_blank" rel="noopener">2 phone use</a> · <a href="https://www.pw.live/iit-jee/exams/josaa-seat-matrix-2024" target="_blank" rel="noopener">3 selection odds</a></p>
 </section>
 
 <!-- 09 MARKET -->
@@ -424,7 +432,7 @@
   <div class="eyebrow">08 · Market</div>
   <h2 class="title">Start at one layer. <em>Own all four.</em></h2>
   <table class="market">
-    <tr><th>Exam</th><th>Students / year</th></tr>
+    <tr><th>Exam</th><th>Students / year<sup class="ref">1</sup></th></tr>
     <tr><td>JEE Main</td><td class="num">12 lakh</td></tr>
     <tr><td>NEET</td><td class="num">22 lakh</td></tr>
     <tr><td>CBSE Class 10 <span class="entry-tag">← we start here</span></td><td class="num">22 lakh</td></tr>
@@ -432,6 +440,7 @@
     <tr class="total"><td>Total addressable</td><td class="num">73 lakh / year</td></tr>
   </table>
   <p class="lead" style="margin-top: 3vh;">Enter at the <strong>22-lakh Class 10 layer</strong>, expand outward. At ₹4,000 ARPU = a <em>₹2,920 Cr</em> market. <strong>1% in 3 years = ₹29 Cr ARR.</strong></p>
+  <p class="links">Link: <a href="https://testbook.com/jee-main/how-many-students-appeared-for-jee-main-year-wise-trend" target="_blank" rel="noopener">1 JEE</a> · <a href="https://testbook.com/neet/how-many-students-registered-for-neet-year-wise-trend" target="_blank" rel="noopener">1 NEET</a> · <a href="https://www.cbse.gov.in/cbsenew/statistics.html" target="_blank" rel="noopener">1 CBSE counts</a></p>
 </section>
 
 <!-- 10 PRICING -->
@@ -461,12 +470,13 @@
   <div class="compete">
     <div class="ch">Player</div><div class="ch">Indian curriculum</div><div class="ch">Finds the root cause</div><div class="ch">Affordable</div>
 
-    <div>Allen / Aakash</div><div class="yes">Yes</div><div class="no">No — one pace</div><div class="no">No (₹2L)</div>
-    <div>Unacademy</div><div class="yes">Yes</div><div class="no">No — video, one path</div><div class="no">₹10K–1.3L</div>
-    <div>PhysicsWallah</div><div class="yes">Yes</div><div class="no">No — video + live</div><div class="yes">₹5K</div>
+    <div>Allen / Aakash</div><div class="yes">Yes</div><div class="no">No — one pace</div><div class="no">No (₹2L)<sup class="ref">1</sup></div>
+    <div>Unacademy</div><div class="yes">Yes</div><div class="no">No — video, one path</div><div class="no">₹10K–1.3L<sup class="ref">2</sup></div>
+    <div>PhysicsWallah</div><div class="yes">Yes</div><div class="no">No — video + live</div><div class="yes">₹5K<sup class="ref">3</sup></div>
     <div>Khanmigo / ChatGPT</div><div class="no">No — US curriculum</div><div class="no">Chats, but no map</div><div class="yes">Free-ish</div>
     <div class="row-us"><div>Sarthi</div><div class="yes">Yes</div><div class="yes">Yes — to first principles</div><div class="yes">₹6K</div></div>
   </div>
+  <p class="links">Link: <a href="https://propelld.com/site/blog/allen-kota-fees" target="_blank" rel="noopener">1 coaching fees</a> · <a href="https://unacademy.com/goal/jee-main-and-advanced-preparation/TMUVD/subscribe" target="_blank" rel="noopener">2 Unacademy</a> · <a href="https://www.pw.live/vp-blogs/exams/physics-wallah-fee-structure" target="_blank" rel="noopener">3 PhysicsWallah</a></p>
 </section>
 
 <!-- 11A HOW IT WORKS / FRACTAL ARCHITECTURE -->
@@ -579,7 +589,8 @@
   <div class="eyebrow">14 · Where this goes</div>
   <h2 class="title">From one exam to <em>every technical subject.</em></h2>
   <p class="lead">Class 10 is the wedge. But the engine is <strong>content-agnostic</strong> — a concept graph is a concept graph. The same system teaches Class 12, JEE / NEET, and <em>Data Science, ML, AI.</em></p>
-  <p class="punch">Adult upskilling pays <b>10–50× more</b> per learner. The classroom is becoming a <em>conversation.</em></p>
+  <p class="punch">Adult upskilling pays <b>10–50× more</b><sup class="ref">1</sup> per learner. The classroom is becoming a <em>conversation.</em></p>
+  <p class="links">Link: <a href="https://www.upgrad.com/blog/data-science-course-fees-with-roadmap/" target="_blank" rel="noopener">1 upGrad</a> · <a href="https://www.scaler.com/blog/ai-machine-learning-course-fees/" target="_blank" rel="noopener">1 Scaler</a></p>
 </section>
 
 <!-- 14 ASK -->
