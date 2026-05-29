@@ -249,11 +249,18 @@
   }
   .ask-cap { font-size: clamp(1.3rem, 1.8vw, 1.6rem); color: var(--dim); }
   .footnote {
-    font-size: 0.85rem;
+    font-size: clamp(1rem, 1.25vw, 1.2rem);
     color: var(--dim);
-    margin-top: 4vh;
+    margin-top: 3vh;
     font-style: italic;
+    max-width: 62ch;
   }
+  .footnote a, .src a { color: var(--accent); text-decoration: none; border-bottom: 1px solid var(--accent-soft); }
+  .footnote a:hover, .src a:hover { border-bottom-color: var(--accent); }
+  .src-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 2.2vh 3vw; margin-top: 2vh; max-width: 1080px; }
+  .src { font-size: clamp(0.98rem, 1.15vw, 1.12rem); color: var(--dim); line-height: 1.5; }
+  .src-claim { color: var(--ink); font-weight: 600; }
+  .src a { white-space: nowrap; }
   .demo-mock {
     background: var(--card);
     border: 1px solid var(--rule);
@@ -319,7 +326,7 @@
 <section class="slide" style="justify-content: center; text-align: center; align-items: center;">
   <div class="big-stat">96%</div>
   <p class="stat-cap">of JEE candidates — most of whom pay for coaching — don't win a single <strong>IIT, NIT, or IIIT</strong> seat.</p>
-  <p class="footnote">~60,000 premier seats (JoSAA 2024) ÷ ~14–15 lakh JEE Main candidates (NTA)</p>
+  <p class="footnote">~60,000 premier seats (<a href="https://www.pw.live/iit-jee/exams/josaa-seat-matrix-2024" target="_blank" rel="noopener">JoSAA 2024</a>) ÷ ~14–15 lakh JEE Main candidates (<a href="https://testbook.com/jee-main/how-many-students-appeared-for-jee-main-year-wise-trend" target="_blank" rel="noopener">NTA data</a>)</p>
 </section>
 
 <!-- 04 THE REAL PROBLEM -->
@@ -600,7 +607,26 @@
   <p class="footnote" style="margin-top: 1vh;">Contact: aiworkshopludhiana@proton.me</p>
 </section>
 
-<div class="progress" id="progress">1 / 18</div>
+<!-- 16 SOURCES (appendix) -->
+<section class="slide">
+  <div class="eyebrow">Appendix · Sources</div>
+  <h2 class="title">Every number, <em>checkable.</em></h2>
+  <p class="lead">Tap any source to verify the claim.</p>
+  <div class="src-grid">
+    <div class="src"><span class="src-claim">₹58,000 cr (~$7B) coaching market</span><br><a href="https://www.outlookbusiness.com/news/raus-ias-tragedy-why-rs-58000-cr-coaching-industry-needs-strict-regulations-2" target="_blank" rel="noopener">Outlook</a> · <a href="https://www.imarcgroup.com/india-coaching-institutes-market" target="_blank" rel="noopener">IMARC</a></div>
+    <div class="src"><span class="src-claim">₹2 lakh/yr premium coaching fees</span><br><a href="https://propelld.com/site/blog/allen-kota-fees" target="_blank" rel="noopener">Allen</a> · <a href="https://propelld.com/site/blog/aakash-institute-fee-structure" target="_blank" rel="noopener">Aakash</a></div>
+    <div class="src"><span class="src-claim">~1% land an IIT seat · 96% no premier seat</span><br><a href="https://www.pw.live/iit-jee/exams/iit-seat-matrix-2024" target="_blank" rel="noopener">IIT seats</a> · <a href="https://www.pw.live/iit-jee/exams/josaa-seat-matrix-2024" target="_blank" rel="noopener">JoSAA seats</a></div>
+    <div class="src"><span class="src-claim">Exam volumes — NEET ~22 L, JEE</span><br><a href="https://testbook.com/neet/how-many-students-registered-for-neet-year-wise-trend" target="_blank" rel="noopener">NEET</a> · <a href="https://testbook.com/jee-main/how-many-students-appeared-for-jee-main-year-wise-trend" target="_blank" rel="noopener">JEE</a></div>
+    <div class="src"><span class="src-claim">CBSE Class 10 ~24 L · Class 12 ~18 L</span><br><a href="https://results.cbse.nic.in/2025-2/" target="_blank" rel="noopener">CBSE results</a> · <a href="https://www.cbse.gov.in/cbsenew/statistics.html" target="_blank" rel="noopener">CBSE stats</a></div>
+    <div class="src"><span class="src-claim">~250 M school students</span><br><a href="https://www.education.gov.in/sites/upload_files/mhrd/files/statistics-new/udise_report_existing_23_24.pdf" target="_blank" rel="noopener">UDISE+</a> · <a href="https://www.pib.gov.in/PressReleasePage.aspx?PRID=2097864" target="_blank" rel="noopener">Economic Survey</a></div>
+    <div class="src"><span class="src-claim">Youth phone use — kids 5–14: 17%→67%</span><br><a href="https://www.pib.gov.in/PressReleasePage.aspx?PRID=2132330" target="_blank" rel="noopener">Govt Telecom Survey 2025</a> · <a href="https://www.dataforindia.com/comm-tech/" target="_blank" rel="noopener">Data For India</a></div>
+    <div class="src"><span class="src-claim">AI inference ~10×/yr cheaper</span><br><a href="https://a16z.com/llmflation-llm-inference-cost/" target="_blank" rel="noopener">a16z</a> · <a href="https://epoch.ai/data-insights/llm-inference-price-trends" target="_blank" rel="noopener">Epoch AI</a></div>
+    <div class="src"><span class="src-claim">Upskilling 10–50× ARPU</span><br><a href="https://www.upgrad.com/blog/data-science-course-fees-with-roadmap/" target="_blank" rel="noopener">upGrad</a> · <a href="https://www.scaler.com/blog/ai-machine-learning-course-fees/" target="_blank" rel="noopener">Scaler</a></div>
+    <div class="src"><span class="src-claim">Competitor pricing — PW, Unacademy</span><br><a href="https://www.pw.live/vp-blogs/exams/physics-wallah-fee-structure" target="_blank" rel="noopener">PhysicsWallah</a> · <a href="https://unacademy.com/goal/jee-main-and-advanced-preparation/TMUVD/subscribe" target="_blank" rel="noopener">Unacademy</a></div>
+  </div>
+</section>
+
+<div class="progress" id="progress">1 / 19</div>
 
 <script>
   const slides = document.querySelectorAll('.slide');
